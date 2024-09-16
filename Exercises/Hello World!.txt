@@ -1,0 +1,13 @@
+console.log('Helper Script Loading…');
+
+namespace P365I.Common.Helpers {
+    
+    // Exportamos la función para que esté disponible globalmente
+    export function onContactFormLoad(executionContext: Xrm.Events.EventContext): void {
+        // Obtenemos el contexto del formulario
+        const formContext = executionContext.getFormContext();
+        
+        // Mostramos la notificación en el formulario
+        formContext.ui.setFormNotification('Hello world!', 'INFO', 'www_contactform_notification');
+    }
+}

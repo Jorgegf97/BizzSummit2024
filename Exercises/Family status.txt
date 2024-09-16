@@ -1,0 +1,29 @@
+namespace P365I.Common.Helpers {
+
+    // Función que se ejecuta cuando cambia el valor de FamilyStatusCode
+    export function onFamilyStatusCodeChange(executionContext: Xrm.Events.EventContext): void {
+        // Obtenemos el contexto del formulario
+        const formContext = executionContext.getFormContext();
+
+        // Obtenemos el valor de FamilyStatusCode
+        const familyStatusCodeValue = formContext.getAttribute("familystatuscode").getValue();
+
+        // Obtenemos el control del campo SpousesName, usando tipos genéricos
+        const spousesNameControl: Xrm.Controls.StandardControl = formContext.getControl<Xrm.Controls.StandardControl>("spousesname");
+
+        // Verificamos si FamilyStatusCode tiene el valor 2
+        if (familyStatusCodeValue === 2) {
+            // Si el valor es 2, hacemos que el campo SpousesName sea visible
+            spousesNameControl.setVisible(true);
+        } else {
+            // Si el valor es distinto de 2 o está vacío, ocultamos el campo SpousesName
+            spousesNameControl.setVisible(false);
+        }
+    }
+
+    // Función que se ejecuta al cargar el formulario para ajustar la visibilidad inicial del campo
+    export function onContactFormLoad(executionContext: Xrm.Events.EventContext): void {
+        // Llamamos a la misma función para ajustar la visibilidad al cargar el formulario
+        onFamilyStatusCodeChange(executionContext);
+    }
+}

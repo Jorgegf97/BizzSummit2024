@@ -1,0 +1,19 @@
+{
+  "name": "P365I.Webresources",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run compile"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/es6-promise": "^3.3.0",
+    "@types/xrm": "9.0.67"
+  },
+  "dependencies": {
+    "latest": "^0.2.0",
+    "promise": "^8.1.0"
+  }
+}
